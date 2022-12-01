@@ -24,4 +24,8 @@ public class ClickListenerActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void ChangeText(View view) {
+        textView.setText("Button Two clicked  onClick");
+    }
 }
