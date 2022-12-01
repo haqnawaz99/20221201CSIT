@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class ClickListenerActivity extends AppCompatActivity {
-    Button buttonOne;
+public class ClickListenerActivity extends AppCompatActivity implements View.OnClickListener {
+    Button buttonOne , buttonThree, buttonFour;
     TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +17,13 @@ public class ClickListenerActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.textViewClickListenerTest);
         buttonOne = findViewById(R.id.btnClickTestOne);
+
+        buttonThree = findViewById(R.id.btnClickTestThree);
+        buttonThree.setOnClickListener(this);
+        buttonFour = findViewById(R.id.btnClickTestFour);
+        buttonFour.setOnClickListener(this);
+
+
         buttonOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -27,5 +34,22 @@ public class ClickListenerActivity extends AppCompatActivity {
 
     public void ChangeText(View view) {
         textView.setText("Button Two clicked  onClick");
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId( )) {
+            case R.id.btnClickTestThree:
+                textView.setText("Button Three Clicked");
+                break;
+            case R.id.btnClickTestFour:
+                textView.setText("Button Four Clicked");
+                break;
+            case R.id.textViewClickListenerTest:
+                textView.setText("Awesome Its me myself");
+                break;
+
+        }
+
     }
 }
